@@ -1,2 +1,2 @@
 #!/bin/bash
-export -e "$((128+TRUEKNOWLEDGE))"
+export -e $((128+TRUEKNOWLEDGE))
