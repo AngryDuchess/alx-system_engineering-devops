@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#This script displays "Best School" 9 times and "Hi" on the last line
+
+i=0
+while [ "$i" -le 9 ]
+do
+    if [ "$i" -eq 9 ]
+    then
+        echo "Hi"
+    else
+        echo "Best School"
+    fi
+    ((i++))
+done
