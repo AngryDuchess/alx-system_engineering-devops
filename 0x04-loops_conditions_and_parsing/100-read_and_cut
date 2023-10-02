@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# this script lists the contents of the /etc/passwd file
+# including only username,uid and home directory
+# it uses the while loop to achieve this
+
+while IFS= read -r line
+do
+	f1=$(echo "$line" | cut -d ':' -f 1)
+	f2=$(echo "$line" | cut -d ':' -f 3)
+	f3=$(echo "$line" | cut -d ':' -f 6)
+
+	echo "$f1:$f2:$f3"
+done < /etc/passwd
