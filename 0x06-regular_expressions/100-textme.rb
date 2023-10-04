@@ -7,4 +7,4 @@ s = SENDER.empty? ? 'N/A' : SENDER
 r = RECEIVER.empty? ? 'N/A' : RECEIVER
 f = FLAGS.empty? ? 'N/A' : FLAGS
 
-puts "#{s}, #{r}, #{f}"
+puts "#{s},#{r},#{f}"
