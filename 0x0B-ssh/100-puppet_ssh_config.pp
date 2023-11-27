@@ -1,7 +1,5 @@
 # using puppet to make changes to ssh config file
 
-include stdlib
-
 file_line { 'remove password authentication':
   ensure => 'present',
   path   => 'etc/ssh/ssh_config',
