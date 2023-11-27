@@ -2,7 +2,7 @@
 
 file_line { 'remove password authentication':
   ensure => 'present',
-  path   => 'etc/ssh/ssh_config',
+  path   => '/etc/ssh/ssh_config',
   line   => ['  PasswordAuthentication no']
 }
 
