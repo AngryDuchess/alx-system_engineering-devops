@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # installs nginx and displays hello world
-apt-get update
+
+apt-get -y update
 apt-get install nginx -y
-ufw allow 80
 echo 'Hello World!' > /var/www/html/index*.html
 service nginx restart
