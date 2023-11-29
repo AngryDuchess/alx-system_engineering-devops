@@ -1,2 +1,17 @@
 #!/usr/bin/env bash
-#redirection
+# redirects a page
+
+REDIRECTION="\
+    location /redirect_me {\n\
+        return 301 https://www.hamidas-portfolio.webflow.io;\n\
+    }\n"
+
+CONFIG_FILE="/etc/nginx/sites-available/default"
+
+sudo apt-get update
+sudo apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+sudo chown -R "$USER":"$USER" /var/www
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sed -i "/server_name _;/a $REDIRECTION" "$CONFIG_FILE"
+service nginx restart
