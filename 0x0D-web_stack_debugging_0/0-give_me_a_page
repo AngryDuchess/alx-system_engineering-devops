@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
 # run apache on container
+
+serevice apache2 start
