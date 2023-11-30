@@ -1,11 +1,16 @@
 # nginx configuration using puppet
 
+exec { 'apt-get update':
+    command => '/usr/bin/apt-get-update
+}
+
 package { 'nginx':
     ensure => installed
 }
 
-file {'/var/www/index.nginx-debian.html':
+file {'/var/www//html/index.nginx-debian.html':i
     content => 'Hello World!'
+    require => Package['nginx']
 }
 
 file_line { 'redirection':
