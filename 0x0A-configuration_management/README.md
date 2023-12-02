@@ -1,5 +1,5 @@
-# Confiuration Manaagement
-Configuratio management refers to the process of systematically handling changes to a system in a way that maintains integrity over time. example of CM tools: puppet, Ansible, chef, salt,etc.
+# Configuration Manaagement
+Configuration management refers to the process of systematically handling changes to a system in a way that maintains integrity over time. example of CM tools: puppet, Ansible, chef, salt,etc.
 This project introduces us to the basics of server configuration management using puppet.
 
 ## Resources
