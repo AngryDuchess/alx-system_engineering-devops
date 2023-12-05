@@ -20,11 +20,11 @@ $line = '\n\tlocation /redirect_me {\n\t\treturn 301 https://www.hamidas-portfol
 
 exec { 'redirection':
     command => "sudo sed -i 'server_name _;/a \\'${line}' /etc/nginx/sites-available/default",
-    path    => '/usr/bin:/bin/'
-}
+    path    => '/usr/bin:bin/'
+}'
 
 service { 'restart server':
     ensure  => running,
     enable  => true,
-    require => [Package['nginx'], Exec['redirection']]
+    require => Package['nginx'] 
 }
