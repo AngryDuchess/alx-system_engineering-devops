@@ -1,23 +1,27 @@
 # nginx configuration using puppet
 
 exec { 'apt-get update':
-    command => '/usr/bin/apt-get-update
+    command => 'apt-get update'
+    path    => ['/usr/bin', '/usr/sbin']
 }
 
 package { 'nginx':
     ensure => installed
 }
 
-file {'/var/www//html/index.nginx-debian.html':
-    content => 'Hello World!'
+file { '/var/www//html/index.nginx-debian.html':
+    ensure  => file,
+    content => 'Hello World!',
+    mode    => '0664',
     require => Package['nginx']
 }
 
-file_line { 'redirection':
-    path  => '/etc/nginx/sites-available/default',
-    after => 'server_name_;',
-    line  => "\n\tlocation /redirect_me {\n\t\treturn 301 https://www.hamidas-portfolio.webflow.io;\n\t}\n"
-}
+$line = '\n\tlocation /redirect_me {\n\t\treturn 301 https://www.hamidas-portfolio.webflow.io;\n\t}\n'
+
+exec { 'redirection':
+    command => "sudo sed -i 'server_name _;/a \\'${line}' /etc/nginx/sites-available/default",
+    path    => '/usr/bin:bin/'
+}'
 
 service { 'restart server':
     ensure  => running,
