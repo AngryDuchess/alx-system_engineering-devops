@@ -7,7 +7,7 @@ exec { 'update':
 
 package { 'nginx':
   ensure  => installed,
-  require => Exec['apt_update'],
+  require => Exec['update'],
 }
 
 file { '/var/www/html/index.html':
@@ -17,11 +17,11 @@ file { '/var/www/html/index.html':
   require => Package['nginx'],
 }
 
-$redirection_rule = '\n\tlocation /redirect_me {\n\
+$line = '\n\tlocation /redirect_me {\n\
         \treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\
         }'
 exec { 'redirection':
-  command => "sudo sed -i '/server_name _;/a \\ ${redirection_rule}' /etc/nginx/sites-available/default",
+  command => "sudo sed -i '/server_name _;/a \\ ${line}' /etc/nginx/sites-available/default",
   path    => '/usr/bin:/bin',
 }
 
