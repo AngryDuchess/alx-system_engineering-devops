@@ -8,7 +8,7 @@ package { 'nginx':
     ensure => installed
 }
 
-file {'/var/www//html/index.nginx-debian.html':i
+file {'/var/www//html/index.nginx-debian.html':
     content => 'Hello World!'
     require => Package['nginx']
 }
@@ -20,6 +20,7 @@ file_line { 'redirection':
 }
 
 service { 'restart server':
-    ensure    => running,
-    subscribe => File_line['redirection'],
+    ensure  => running,
+    enable  => true,
+    require => Package['nginx'] 
 }
