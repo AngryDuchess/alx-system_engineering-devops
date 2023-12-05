@@ -1,6 +1,6 @@
 # nginx configuration using puppet
 
-exec { 'apt_update':
+exec { 'apt-get update':
   command => 'apt-get update',
   path    => ['/usr/bin', '/usr/sbin'],
 }
@@ -17,11 +17,11 @@ file { '/var/www/html/index.html':
   require => Package['nginx'],
 }
 
-$redirect_rule = '\n\tlocation /redirect_me {\n\
+$line = '\n\tlocation /redirect_me {\n\
         \treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\
         }'
 exec { 'redirect_me':
-  command => "sudo sed -i '/server_name _;/a \\ ${redirect_rule}' /etc/nginx/sites-available/default",
+  command => "sudo sed -i '/server_name _;/a \\ ${line}' /etc/nginx/sites-available/default",
   path    => '/usr/bin:/bin',
 }
 
