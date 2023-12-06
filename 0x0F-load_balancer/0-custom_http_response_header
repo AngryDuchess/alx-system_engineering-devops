@@ -1,31 +1,34 @@
 #!/usr/bin/env bash
-# error 404 custom page
+# configuring second server
 
-sudo apt-get -y update
-sudo apt-get -y install nginx
-sudo ufw allow 'Nginx HTTP'
-sudo chown -R "$USER":"$USER" /var/www
+sudo apt-get update
+sudo apt-get install nginx -y
 
-REDIRECTION="\
-    location /redirect_me {\n\
-        return 301 https://www.hamidas-portfolio.webflow.io;\n\
-    }\n"
-
+sudo chown -R "$USER":"sudo" /var/www/html
+echo "Hello World!" > /var/www/html/index.html
 CONFIG_FILE="/etc/nginx/sites-available/default"
+REDIRECT="\
+	location /redirect {\n\
+		return 301 https://hamidas-portfolio.webflow.io/;\n\
+	}\n"
 
-ERRORFILE="/var/www/html/error_404.html"
+sudo sed -i "/server_name _;/a\ $REDIRECT" "$CONFIG_FILE"
+
 MESSAGE="Ceci n'est pas une page"
-ERROR_REDIRECTION="\
-        error_page 404 /error_404.html;\
-        location = /404error.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}\n"
+ERROR_FILE="/var/www/html/error_404.html"
 
+echo "$MESSAGE" > "$ERROR_FILE"
+ERROR_PAGE="\terror_page 404 /error_404.html;"
+REDIRECTION="\
+	location /error_404.html {\n\
+		root /var/www/html/;\n\
+		internal;\n\
+	}"
 
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
-sudo sed -i "/server_name _;/a $REDIRECTION" "$CONFIG_FILE"
+sudo sed -i "/server_name _;/a\ $REDIRECTION" "$CONFIG_FILE"
+sudo sed -i "/server_name _;/a\ $ERROR_PAGE" "$CONFIG_FILE"
 
-echo "$MESSAGE" > "$ERRORFILE"
-sudo sed -i "/server_name _;/a $ERROR_REDIRECTION" "$CONFIG_FILE"
-
-sudo sed -i "/server_name _;/a \n\tadd_header X-Served-By \"$(hostname)\";" "$CONFIG_FILE"
+HEADER="\n\tadd_header X-Served-By \$hostname;"
+sudo sed -i "/server_name _;/a\ $HEADER" "$CONFIG_FILE"
 
 sudo service nginx restart
