@@ -9,7 +9,7 @@ exec { 'update and install nginx':
 }
 
 exec { 'insert header':
-    command  => 'sudo sed -i "/server_name _;/a\ $HEADER" "$CONFIG_FILE"' && sudo service nginx restart',
+    command  => "sudo sed -i '/server_name _;/a\\$HEADER' $CONFIG_FILE && sudo service nginx restart",
     provider => shell
     require  => Exec['update and install nginx']
 }
