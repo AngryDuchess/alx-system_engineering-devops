@@ -9,7 +9,7 @@ Installing mysql server and client
 
 ### Install mysql
 ``` sudo apt-key add signature.key```
-```` sudo sh -c 'echo "deb http://repo.mysql.com/apt/ubuntu bionic mysql-5.7" >> /etc/apt/sources.list.d/mysql.list'```
+``` sudo sh -c 'echo "deb http://repo.mysql.com/apt/ubuntu bionic mysql-5.7" >> /etc/apt/sources.list.d/mysql.list'```
 ```sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B7B3B788A8D3785C```
 ```sudo apt-get update```
 ```sudo apt-cache policy mysql-server```
