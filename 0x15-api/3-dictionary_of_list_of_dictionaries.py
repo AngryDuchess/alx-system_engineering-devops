@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+"""stores all employee data as objects"""
 import requests
 from sys import argv
 import json

@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+"""stores data as csv"""
 import requests
 from sys import argv
 import csv
