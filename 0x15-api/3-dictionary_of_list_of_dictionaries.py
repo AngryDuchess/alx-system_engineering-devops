@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """stores all employee data as objects"""
+import json
 import requests
 from sys import argv
-import json
+
 
 if __name__ == '__main__':
 
