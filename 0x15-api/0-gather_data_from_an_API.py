@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+"""gets employee data ffrom api given"""
 import requests
 from sys import argv
 
