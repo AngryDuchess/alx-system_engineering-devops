@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """stores data as json"""
+import json
 import requests
 from sys import argv
-import json
+
 
 if __name__ == '__main__':
 
