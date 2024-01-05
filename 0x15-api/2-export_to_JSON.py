@@ -10,7 +10,7 @@ if __name__ == '__main__':
     userID = int(argv[1])
 
     username = requests.get(f'https://jsonplaceholder.\
-            typicode.com/users/{userID}').json().get('name')
+            typicode.com/users/{userID}').json().get('username')
     todos = requests.get(f'https://jsonplaceholder.typicode.com/todos/').json()
     user_todos = list(filter(lambda todo: todo.get('userId') == userID, todos))
 
