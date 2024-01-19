@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" Queries and return the number of subscribers in sub reddit """
+"""
+Queries and return the number of subscribers in sub reddit
+"""
 from requests import get
 
 
