@@ -22,10 +22,10 @@ def count_words(subreddit, word_list, after=None, count=None):
     try:
         response = requests.get(url, headers=headers, allow_redirects=False)
         response.raise_for_status()
-        if response.ok:
+        if response.status_code == 200:
             data = response.json()
-            children = data.get('data').get('children')
-            if children:
+            if data.get('data').get('children'):
+                children = data.get('data').get('children')
                 if len(children) == 0:
                     print(count)
                     return
