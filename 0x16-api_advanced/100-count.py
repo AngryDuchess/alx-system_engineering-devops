@@ -40,8 +40,9 @@ def count_words(subreddit, word_list, after=None, count=None):
                     after = data['data']['after']
                     return count_words(subreddit, word_list, after, count)
                 else:
-                    for k, v in count.items():
-                        print('{}: {}'.format(k, v))
+                    # for k, v in count.items():
+                    # print('{}: {}'.format(k, v))
+                    print(count)
                     return
     except requests.exceptions.HTTPError:
         print(None)
