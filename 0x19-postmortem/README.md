@@ -1,27 +1,3 @@
-# POSTMORTEM
--   [](https://intranet.alxswe.com/planning/me)
--   [](https://intranet.alxswe.com/projects/current)
--   [](https://intranet.alxswe.com/corrections/to_review)
--   [](https://intranet.alxswe.com/dashboards/my_current_evaluation_quizzes)
-
-* * * * *
-
--   [](https://intranet.alxswe.com/dashboards/my_curriculums)
--   [](https://intranet.alxswe.com/concepts)
--   [](https://intranet.alxswe.com/dashboards/video_rooms)
--   [](https://intranet.alxswe.com/servers)
--   [](https://intranet.alxswe.com/user_containers/current)
--   [](https://intranet.alxswe.com/dashboards/my_tools)
--   [](https://intranet.alxswe.com/dashboards/videos)
-
-* * * * *
-
--   [](https://intranet.alxswe.com/users/peers)
--   [](https://intranet.alxswe.com/dashboards/my_captain_log)
--   [](https://discord.com/app)
-
-    [](https://intranet.alxswe.com/users/my_profile)
-
 0x19. Postmortem
 ================
 
